@@ -1164,7 +1164,7 @@ private fun QuickConnectDialog(
         },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(stringResource(R.string.quick_connect_desc),
+                Text(stringResource(R.string.quick_connect_dialog_desc),
                     color = CometTail, style = MaterialTheme.typography.bodySmall)
 
                 // Host:Port field
