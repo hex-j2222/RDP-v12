@@ -312,7 +312,7 @@
     <!-- Quick Connect dialog -->
     <string name="error_quick_connect_host_required">Quick Connect: host address is required</string>
     <string name="quick_connect_title">Quick Connect</string>
-    <string name="quick_connect_desc">Connect instantly without saving a profile.</string>
+    <string name="quick_connect_dialog_desc">Connect instantly without saving a profile.</string>
     <string name="quick_connect_hint">Hold for Quick Connect</string><!-- BUG-7 FIX -->
     <string name="field_host_port">Host : Port</string>
 
