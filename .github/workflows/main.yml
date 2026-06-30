@@ -392,6 +392,7 @@ jobs:
               -DANDROID_PLATFORM="android-26" \
               -DANDROID_STL="c++_shared" \
               -DCMAKE_BUILD_TYPE=MinSizeRel \
+              -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
               -DCMAKE_INSTALL_PREFIX="$OUT" \
               \
               -DOPENSSL_ROOT_DIR="$OPENSSL_ABI_DIR" \
@@ -689,6 +690,7 @@ jobs:
               -DANDROID_PLATFORM="android-26" \
               -DANDROID_STL="c++_shared" \
               -DCMAKE_BUILD_TYPE=MinSizeRel \
+              -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
               -DCMAKE_INSTALL_PREFIX="$OUT" \
               \
               -DOPENSSL_ROOT_DIR="$OPENSSL_ABI_DIR" \
