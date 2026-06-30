@@ -378,7 +378,7 @@ fun FileTransferScreen(
                     }
                 }
 
-                val transferActions: @Composable ColumnScope.() -> Unit = {
+                val transferActions: @Composable () -> Unit = {
                     if (isSsh) {
                         val canUp = phoneSelected != null && phoneSelected?.isDirectory == false
                         IconButton(
@@ -393,7 +393,7 @@ fun FileTransferScreen(
                                 modifier = Modifier.size(18.dp)
                             )
                         }
-                        Spacer(Modifier.height(8.dp))
+                        Spacer(Modifier.size(8.dp))
                         val canDn = remoteSelected != null && remoteSelected?.isDirectory == false
                         IconButton(
                             onClick  = { if (canDn) downloadSelected() },
@@ -424,9 +424,8 @@ fun FileTransferScreen(
                         Column(
                             modifier            = Modifier.width(48.dp).fillMaxHeight().background(NebulaSurface),
                             horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center,
-                            content             = transferActions
-                        )
+                            verticalArrangement = Arrangement.Center
+                        ) { transferActions() }
                         Column(Modifier.weight(1f).fillMaxHeight(), content = remotePanel)
                     }
                 } else {
@@ -458,7 +457,7 @@ fun FileTransferScreen(
                                 modifier              = Modifier.fillMaxWidth().padding(vertical = 4.dp),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                Row(verticalAlignment = Alignment.CenterVertically, content = transferActions)
+                                Row(verticalAlignment = Alignment.CenterVertically) { transferActions() }
                             }
                         }
                         Column(Modifier.weight(1f).fillMaxWidth()) {
