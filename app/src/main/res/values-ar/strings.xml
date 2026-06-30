@@ -306,7 +306,7 @@
 
     <!-- مربع حوار الاتصال السريع -->
     <string name="quick_connect_title">اتصال سريع</string>
-    <string name="quick_connect_desc">اتصال فوري دون حفظ ملف.</string>
+    <string name="quick_connect_dialog_desc">اتصال فوري دون حفظ ملف.</string>
     <string name="quick_connect_hint">اضغط مطولاً للاتصال السريع</string>
     <string name="field_host_port">المضيف : المنفذ</string>
 
