@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">هيكس RDP</string>
+
+    <!-- الرئيسية -->
+    <string name="no_connections">لا توجد اتصالات بعد</string>
+    <string name="add_first_connection">أطلق أول جلسة اتصال عن بُعد إلى الفضاء الرقمي</string>
+    <string name="add_connection">إضافة اتصال</string>
+    <string name="connect">اتصال</string>
+    <string name="edit">تعديل</string>
+    <string name="delete">حذف</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+
+    <!-- نموذج الاتصال -->
+    <string name="new_connection">اتصال جديد</string>
+    <string name="edit_profile">تعديل الملف</string>
+    <string name="connection_name">اسم الاتصال</string>
+    <string name="host_ip">المضيف / عنوان IP</string>
+    <string name="port">المنفذ</string>
+    <!-- نموذج الاتصال — التصميم الجديد (اتصال سريع / إعدادات اختيارية) -->
+    <string name="quick_connect">اتصال سريع</string>
+    <string name="quick_connect_desc">فقط الأساسيات — املأها وأنت جاهز للاتصال</string>
+    <string name="advanced_optional">إعدادات اختيارية</string>
+    <string name="advanced_optional_desc">اضغط على أي بطاقة لضبطها — فقط إذا احتجت ذلك</string>
+    <string name="status_on">مُفعّل</string>
+    <string name="status_off">غير مُفعّل</string>
+    <string name="section_security_auth">الأمان وتسجيل الدخول</string>
+    <string name="section_security_auth_desc">النطاق وثقة الشهادة</string>
+    <string name="section_display_performance">العرض والأداء</string>
+    <string name="section_display_performance_desc">الألوان والدقة والسرعة</string>
+    <string name="card_gateway_desc">التوجيه عبر بوابة سطح المكتب البعيد</string>
+    <string name="card_tunnel_desc">التوجيه عبر خادم قفز SSH</string>
+    <string name="card_wol_desc">إيقاظ الجهاز البعيد قبل الاتصال</string>
+    <string name="card_trust_desc">إدارة بصمات الخادم المحفوظة</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="password">كلمة المرور</string>
+    <string name="domain_optional">النطاق (اختياري)</string>
+    <string name="use_nla">استخدام مصادقة NLA</string>
+    <!-- BUG-3 FIX -->
+    <string name="accept_self_signed_cert">قبول الشهادة الموقّعة ذاتياً (غير آمن)</string>
+    <string name="protocol">البروتوكول</string>
+    <string name="protocol_locked_hint">لا يمكن تغيير البروتوكول بعد الإنشاء — أنشئ ملفاً جديداً بدلاً من ذلك.</string>
+    <string name="protocol_change_title">تغيير البروتوكول؟</string>
+    <string name="protocol_change_warning">تغيير البروتوكول قد يؤدي إلى إعادة تعيين الحقول الخاصة بالبروتوكول (مثل النطاق، وضع العرض فقط في VNC، مفتاح SSH). ستُحفظ الإعدادات الأخرى كالمضيف والمنفذ واسم المستخدم وكلمة المرور.</string>
+    <string name="protocol_change_confirm">تغيير</string>
+    <string name="domain">النطاق (اختياري)</string>
+    <string name="vnc_password">كلمة مرور VNC</string>
+    <string name="vnc_view_only">عرض فقط (تعطيل الإدخال)</string>
+    <string name="rd_gateway">بوابة RD</string>
+    <string name="use_rd_gateway">الاتصال عبر بوابة RD</string>
+    <string name="gateway_host">مضيف البوابة / IP</string>
+    <string name="gateway_port">منفذ البوابة</string>
+    <string name="gateway_username">اسم مستخدم البوابة</string>
+    <string name="gateway_password">كلمة مرور البوابة</string>
+    <string name="gateway_domain">نطاق البوابة (اختياري)</string>
+    <string name="ssh_authentication">مصادقة SSH</string>
+    <string name="ssh_auth_password">كلمة المرور</string>
+    <string name="ssh_auth_key">المفتاح الخاص</string>
+    <string name="ssh_private_key">المفتاح الخاص (PEM)</string>
+    <string name="ssh_key_passphrase">عبارة مرور المفتاح (اختياري)</string>
+
+    <!-- SSH Tunnel -->
+    <string name="ssh_tunnel">نفق SSH</string>
+    <string name="use_ssh_tunnel">التنفيذ عبر نفق SSH (خادم القفز)</string>
+    <string name="ssh_tunnel_desc">تمرير اتصال RDP/VNC عبر نفق SSH آمن. يُلغي الحاجة لـ RD Gateway في كثير من السيناريوهات.</string>
+    <string name="ssh_tunnel_host">مضيف SSH / IP</string>
+    <string name="ssh_tunnel_port">منفذ SSH</string>
+    <string name="ssh_tunnel_username">اسم مستخدم SSH</string>
+    <string name="ssh_tunnel_password">كلمة مرور SSH</string>
+    <string name="ssh_tunnel_auth">مصادقة نفق SSH</string>
+    <string name="ssh_tunnel_private_key">مفتاح نفق SSH الخاص (PEM)</string>
+    <string name="ssh_tunnel_key_passphrase">عبارة مرور مفتاح SSH (اختياري)</string>
+    <string name="resolution">دقة الشاشة</string>
+    <string name="resolution_auto">تلقائي (مطابقة الجهاز)</string>
+    <string name="resolution_custom">مخصص…</string>
+    <string name="width">العرض</string>
+    <string name="height">الارتفاع</string>
+
+    <!-- الحذف -->
+    <string name="delete_confirm_title">حذف الاتصال</string>
+    <string name="delete_confirm_message">حذف \"%s\"؟ لا يمكن التراجع عن هذا الإجراء.</string>
+
+    <!-- الاشتراك -->
+    <string name="welcome_title">مرحباً بك في هيكس RDP</string>
+    <string name="welcome_message">انضم إلى قناة التيليغرام للحصول على آخر التحديثات والنصائح والدعم من مجتمع المطورين.</string>
+    <string name="subscribe_title">ابقَ على التواصل</string>
+    <string name="subscribe_message">احصل على أحدث التحديثات والمميزات والدعم بالانضمام إلى قناة التيليغرام.</string>
+    <string name="join_channel">انضم إلى قناة التيليغرام</string>
+    <string name="later">لاحقاً</string>
+
+    <!-- الشبكة -->
+    <string name="poor_network_warning">إشارة ضعيفة — التبديل إلى وضع النطاق الترددي المنخفض</string>
+
+    <!-- الإعدادات -->
+    <string name="settings">الإعدادات</string>
+    <string name="appearance">المظهر</string>
+    <string name="dark_mode">الوضع الليلي</string>
+    <string name="dark">ليلي</string>
+    <string name="light">نهاري</string>
+    <string name="theme">ثيم الألوان</string>
+    <string name="theme_space">الفضاء العميق</string>
+    <string name="theme_nebula">السديم</string>
+    <string name="theme_aurora">الشفق القطبي</string>
+    <string name="language">اللغة</string>
+    <string name="lang_system">افتراضي النظام</string>
+
+    <!-- المؤشر -->
+    <string name="cursor_input">المؤشر والإدخال</string>
+    <string name="cursor_style">شكل المؤشر</string>
+    <string name="cursor_default">سهم الفضاء</string>
+    <string name="cursor_crosshair">شبكة HUD</string>
+    <string name="cursor_dot">نقطة بلازما</string>
+    <string name="cursor_circle">حلقة مدارية</string>
+    <string name="cursor_size">حجم المؤشر</string>
+    <string name="touchpad_sensitivity">حساسية لوحة اللمس</string>
+    <string name="haptic_feedback">الاهتزاز</string>
+    <string name="sound_effects">المؤثرات الصوتية</string>
+    <string name="sound_effects_desc">أصوات المجرة عند النقر والتبديل والاتصال</string>
+
+    <!-- الاتصال -->
+    <string name="connection">الاتصال</string>
+    <string name="auto_reconnect">إعادة الاتصال التلقائية</string>
+    <string name="compression_quality">جودة ضغط الإطارات</string>
+    <string name="default_resolution">دقة الشاشة الافتراضية</string>
+
+    <!-- UX-06: إعدادات RDP المتقدمة -->
+    <string name="rdp_advanced">الإعدادات المتقدمة</string>
+    <!-- BUG-1 FIX: هذا المفتاح كان مفقوداً من ملف الترجمة العربية →
+         كرّاش وقت التشغيل عند استخدام Quick Connect بدون إدخال المضيف على الأجهزة العربية -->
+    <string name="error_quick_connect_host_required">الاتصال السريع: عنوان المضيف مطلوب</string>
+    <string name="color_depth">عمق الألوان</string>
+    <string name="color_depth_16">16-بت (أسرع)</string>
+    <string name="color_depth_24">24-بت</string>
+    <string name="color_depth_32">32-بت (أفضل جودة)</string>
+    <string name="performance_quality">جودة الاتصال</string>
+    <string name="performance_low">2G / بطيء</string>
+    <string name="performance_medium">3G / متوسط</string>
+    <string name="performance_wifi">Wi-Fi</string>
+    <string name="performance_lan">LAN / سريع</string>
+    <string name="performance_auto">اكتشاف تلقائي</string>
+    <string name="enable_sound">تفعيل الصوت عن بُعد</string>
+    <!-- UX-07: شارة "عرض فقط" -->
+    <string name="view_only_banner">عرض فقط — الإدخال معطّل</string>
+    <string name="run_in_background">إبقاء الجلسة في الخلفية</string>
+    <string name="run_in_background_desc">يبقى متصلاً عند التبديل بين التطبيقات أو قفل الشاشة</string>
+
+    <!-- التحكم في الجلسة -->
+    <string name="session_controls">التحكم في الجلسة</string>
+    <string name="show_toolbar_by_default">إظهار شريط الأدوات افتراضياً</string>
+    <string name="show_extra_keys_by_default">إظهار شريط اختصارات لوحة المفاتيح</string>
+
+    <!-- المطور -->
+    <string name="developer">المطور</string>
+    <string name="developer_telegram">GoToHEX — اضغط لفتح التيليغرام</string>
+    <string name="developer_youtube">@dev-hex404 — اضغط لفتح يوتيوب</string>
+    <string name="about">حول التطبيق</string>
+    <string name="by_developer">بواسطة GoToHEX</string>
+
+    <!-- الجلسة في الخلفية -->
+    <string name="background_session_channel">الجلسات النشطة</string>
+    <string name="background_session_description">يظهر أثناء تشغيل جلسة سطح مكتب بعيد في الخلفية</string>
+    <string name="background_session_title">جلسة HexRDP نشطة</string>
+    <string name="background_session_text">متصل بـ %1$s — اضغط للعودة</string>
+
+    <!-- شاشة الجلسة -->
+    <string name="connecting_to">جارٍ الاتصال بـ %1$s…</string>
+    <string name="session_disconnected">انتهت الجلسة</string>
+    <string name="reconnect">إعادة الاتصال</string>
+    <string name="close">إغلاق</string>
+    <string name="session_error">خطأ في الاتصال</string>
+    <string name="keyboard">لوحة المفاتيح</string>
+    <string name="extra_keys">مفاتيح إضافية</string>
+    <string name="disconnect">قطع الاتصال</string>
+    <string name="take_screenshot">لقطة شاشة</string>
+    <string name="screenshot_saved">تم حفظ لقطة الشاشة في المعرض</string>
+    <string name="screenshot_failed">فشل حفظ لقطة الشاشة</string>
+    <string name="ctrl">Ctrl</string>
+    <string name="alt">Alt</string>
+    <string name="esc">Esc</string>
+    <string name="tab">Tab</string>
+    <string name="win">Win</string>
+    <string name="fn">Fn</string>
+    <string name="delete_key">Del</string>
+    <string name="page_up">PgUp</string>
+    <string name="page_down">PgDn</string>
+    <string name="home_key">Home</string>
+    <string name="end_key">End</string>
+    <string name="initializing">جارٍ تهيئة محرك الانتقال…</string>
+    <string name="warp_connected">تم الاتصال بنجاح</string>
+    <!-- ✅ إعدادات جديدة -->
+    <string name="scroll_sensitivity">حساسية التمرير</string>
+    <string name="right_click_long_press">الضغط المطوّل = كليك أيمن</string>
+    <string name="right_click_long_press_desc">اضغط مطوّلاً لتفعيل زر الفأرة الأيمن</string>
+    <string name="keep_screen_on">إبقاء الشاشة مضاءة</string>
+    <string name="keep_screen_on_desc">منع إطفاء الشاشة خلال الجلسات</string>
+    <string name="reconnect_attempts">عدد محاولات إعادة الاتصال</string>
+    <string name="security">الأمان</string>
+    <string name="biometric_lock">القفل بالبصمة</string>
+    <string name="biometric_lock_desc">فتح التطبيق بالبصمة أو التعرف على الوجه</string>
+    <string name="pin_lock">القفل برمز PIN</string>
+    <string name="pin_lock_desc">تعيين رمز رقمي لقفل التطبيق</string>
+    <string name="pin_lock_set">الرمز مُعيَّن — اضغط للتغيير أو الإلغاء</string>
+
+    <!-- شاشة القفل -->
+    <string name="unlock_to_continue">أدخل رمز PIN للمتابعة</string>
+    <string name="biometric_prompt_title">فتح هيكس RDP</string>
+    <string name="biometric_prompt_subtitle">استخدم بصمة إصبعك أو بيانات اعتماد الجهاز</string>
+    <string name="pin_locked_message">تم القفل لمدة %1$d ثانية</string>
+    <string name="pin_attempts_remaining">%1$d محاولات متبقية</string>
+
+    <!-- Feature-05: تعدد الجلسات -->
+    <string name="active_sessions">الجلسات النشطة</string>
+    <string name="session_tab_connecting">جارٍ الاتصال…</string>
+    <string name="session_tab_reconnecting">إعادة الاتصال…</string>
+    <string name="close_session">إغلاق الجلسة</string>
+
+    <!-- Feature-06: سجل الاتصالات -->
+    <string name="connection_history">سجل الاتصالات</string>
+    <string name="data_section">البيانات</string>
+    <string name="history_empty">لا يوجد سجل بعد</string>
+    <string name="history_empty_subtitle">ستظهر اتصالاتك هنا بعد أول جلسة</string>
+    <string name="history_reconnect">إعادة الاتصال</string>
+    <string name="history_clear">مسح السجل</string>
+    <string name="history_clear_confirm">سيُحذف سجل الاتصالات بالكامل ولا يمكن التراجع.</string>
+    <string name="history_duration_hours">%1$dس %2$dد</string>
+    <string name="history_duration_minutes">%1$dد %2$dث</string>
+    <string name="history_duration_seconds">%1$dث</string>
+    <string name="disconnect_reason_auth">فشل المصادقة</string>
+    <string name="disconnect_reason_error">خطأ في الاتصال</string>
+    <string name="disconnect_reason_user">قطع المستخدم الاتصال</string>
+
+    <!-- Wake-on-LAN -->
+    <string name="wol_section">إيقاظ الجهاز عن بُعد (WoL)</string>
+    <string name="additional_settings">إعدادات إضافية</string>
+    <string name="wol_enable">تفعيل Wake-on-LAN</string>
+    <string name="wol_mac_address">عنوان MAC (AA:BB:CC:DD:EE:FF)</string>
+    <string name="wol_broadcast">عنوان البث</string>
+    <string name="wol_hint">يُرسل حزمة سحرية عبر UDP لإيقاظ الجهاز قبل الاتصال. استخدم عنوان البث الخاص بالشبكة (مثال: 192.168.1.255) للإرسال عبر الراوتر.</string>
+    <string name="wol_mac_invalid">صيغة عنوان MAC غير صحيحة</string>
+    <string name="wol_wake">إيقاظ</string>
+    <string name="wol_sent">تم إرسال الحزمة السحرية — في انتظار الجهاز…</string>
+    <string name="wol_error">فشل إرسال حزمة Wake-on-LAN</string>
+    <!-- استيراد ملف .rdp -->
+    <string name="import_rdp_label">استيراد</string>
+    <string name="import_rdp_title">استيراد ملف .RDP</string>
+    <string name="import_rdp_desc">افتح ملف Remote Desktop من ويندوز (.rdp) لاستيراد إعدادات الاتصال</string>
+    <string name="import_rdp_review">راجع الاتصال المستورد واحفظه</string>
+
+    <!-- ── مفاتيح مفقودة من strings.xml الإنجليزية ──────────────────────── -->
+    <string name="biometric_not_available">المصادقة البيومترية غير متوفرة على هذا الجهاز. يُرجى تسجيل بصمة إصبع في الإعدادات أولاً.</string>
+    <string name="show_fps_counter">عداد الإطارات</string>
+    <string name="show_fps_counter_desc">عرض عدد الإطارات في الثانية والتأخر أثناء الجلسة</string>
+    <string name="show_cursor_on_touch">إظهار المؤشر عند اللمس</string>
+    <string name="show_cursor_on_touch_desc">عرض مؤشر عند موضع الإشارة الحالي</string>
+
+    <!-- ── i18n FIX: نصوص واجهة كانت مكتوبة بالإنجليزية مباشرةً ──────────── -->
+    <!-- مربع حوار قطع الاتصال -->
+    <string name="disconnect_dialog_title">قطع الاتصال؟</string>
+    <string name="disconnect_dialog_message">سيؤدي هذا إلى إنهاء الجلسة البعيدة الحالية.</string>
+
+    <!-- شاشة الاتصال الجارية -->
+    <string name="connecting_please_wait">يُرجى الانتظار…</string>
+
+    <!-- شاشة الخطأ -->
+    <string name="error_connection_failed">فشل الاتصال</string>
+    <string name="copy_log">نسخ السجل</string>
+    <string name="copied">تم النسخ ✓</string>
+
+    <!-- شاشة الانقطاع -->
+    <string name="disconnected_title">انقطع الاتصال</string>
+
+    <!-- دليل الإيماءات -->
+    <string name="gesture_guide_title">دليل الإيماءات</string>
+    <string name="gesture_pinch_pan_title">قرص / تحريك</string>
+    <string name="gesture_pinch_pan_desc">إصبعان للتكبير والتحريك</string>
+    <string name="gesture_long_press_title">ضغط مطوّل</string>
+    <string name="gesture_long_press_desc">زر الفأرة الأيمن</string>
+    <string name="gesture_toolbar_title">زر شريط الأدوات</string>
+    <string name="gesture_toolbar_desc">اضغط ↓ في أعلى اليمين لإظهار/إخفاء شريط الأدوات</string>
+    <string name="gesture_got_it">فهمت</string>
+    <string name="gesture_tap_to_dismiss">اضغط في أي مكان للإغلاق</string>
+
+    <!-- أوصاف محتوى شريط الأدوات -->
+    <string name="cd_ctrl_alt_del">Ctrl+Alt+Del</string>
+
+    <!-- رقائق بطاقة الاتصال -->
+    <string name="chip_gateway">البوابة</string>
+    <string name="chip_view_only">عرض فقط</string>
+    <string name="chip_key">مفتاح</string>
+
+    <!-- حالة قوائم فارغة لكل بروتوكول -->
+    <string name="no_rdp_connections">لا توجد اتصالات RDP</string>
+    <string name="no_rdp_connections_desc">أضف اتصال RDP للوصول عن بُعد إلى Windows</string>
+    <string name="no_vnc_connections">لا توجد اتصالات VNC</string>
+    <string name="no_vnc_connections_desc">أضف اتصال VNC للتحكم بأجهزة سطح المكتب البعيدة</string>
+    <string name="no_ssh_connections">لا توجد اتصالات SSH</string>
+    <string name="no_ssh_connections_desc">أضف اتصال SSH للوصول إلى الطرفية بأمان</string>
+
+    <!-- واجهة البحث والقوائم -->
+    <string name="search_hint">بحث باسم أو IP…</string>
+    <string name="cd_clear_search">مسح البحث</string>
+    <string name="cd_drag_reorder">اسحب لإعادة الترتيب</string>
+    <string name="cd_lock_icon">التطبيق مقفل</string>
+    <string name="cd_biometric_button">فتح القفل بالبيومتري</string>
+
+    <!-- مربع حوار الاتصال السريع -->
+    <string name="quick_connect_title">اتصال سريع</string>
+    <string name="quick_connect_desc">اتصال فوري دون حفظ ملف.</string>
+    <string name="quick_connect_hint">اضغط مطولاً للاتصال السريع</string>
+    <string name="field_host_port">المضيف : المنفذ</string>
+
+    <!-- مربع حوار إعداد رمز PIN -->
+    <string name="pin_setup_title">تعيين رمز PIN</string>
+    <string name="pin_setup_desc">أدخل رمز PIN مكوناً من 4–6 أرقام لقفل التطبيق.</string>
+    <string name="pin_label">رمز PIN</string>
+    <string name="pin_confirm_label">تأكيد رمز PIN</string>
+    <string name="pin_error_too_short">يجب أن يتكون رمز PIN من 4 أرقام على الأقل</string>
+    <string name="pin_error_mismatch">رمزا PIN غير متطابقَين</string>
+
+    <!-- بطاقة حول التطبيق -->
+    <string name="app_subtitle">عميل الوصول البعيد متعدد البروتوكولات</string>
+
+    <!-- شاشة القفل -->
+    <string name="use_biometrics">استخدام البصمة</string>
+
+    <!-- شاشة الطرفية -->
+    <string name="terminal_connecting">جارٍ الاتصال…</string>
+    <string name="terminal_ssh_latency">SSH • %dms</string>
+
+    <!-- حد الجلسات (MAX_TABS) -->
+    <string name="error_max_sessions">تم بلوغ الحد الأقصى للجلسات (%1$d). أغلق جلسة قبل فتح جلسة جديدة.</string>
+
+    <!-- ── Bug fixes: ترجمات عربية لمفاتيح جديدة ─────────────────────────── -->
+
+    <!-- Bug #2: نصوص مربعات حوار شاشة السجل -->
+    <string name="history_clear_title">مسح السجل؟</string>
+    <string name="clear">مسح</string>
+    <string name="history_quickconnect_prompt">هذه الجلسة كانت Quick Connect — أدخِل credentials للمتابعة.</string>
+
+    <!-- Bug #3: رسائل خطأ استيراد الملف وPIN -->
+    <string name="error_file_cannot_open">تعذّر فتح الملف. ربما تم نقله أو تم رفض الصلاحية.</string>
+    <string name="error_rdp_file_corrupted">فشل قراءة ملف .rdp. قد يكون الملف تالفاً.</string>
+    <string name="error_rdp_file_missing_host">ملف .rdp غير صالح: حقل العنوان مفقود أو فارغ.</string>
+    <string name="error_pin_keystore_unavailable">فشل حفظ رمز PIN. خزينة مفاتيح الجهاز غير متاحة.</string>
+    <!-- CRIT-4 FIX: رسالة خطأ حفظ الملف التعريفي عند تعذّر Keystore -->
+    <string name="error_profile_save_keystore">تعذّر حفظ الملف التعريفي: مخزن مفاتيح الجهاز غير متاح. أعِد تشغيل الجهاز وحاول مجدداً.</string>
+
+    <!-- Bug #4: تسميات السحب في البطاقات -->
+    <string name="swipe_to_delete">سحب لحذف</string>
+    <string name="swipe_to_edit">سحب لتعديل</string>
+    <string name="swipe_hint_combined">اسحب البطاقة يمينًا للحذف، يسارًا للتعديل — أو اضغط ⋮ لمزيد من الخيارات</string>
+    <string name="card_more_options">خيارات إضافية</string>
+    <string name="connection_history_in_settings">عرض سجل اتصالاتك السابقة</string>
+
+    <!-- Bug #5: رسائل أخطاء طبقة الشبكة -->
+    <string name="error_auth_failed_credentials">فشل المصادقة. تحقق من بيانات الاعتماد.</string>
+    <string name="error_connect_failed_host">فشل الاتصال بـ %1$s:%2$d</string>
+    <string name="error_vnc_timeout">انتهت مهلة اتصال VNC بعد %1$d ثانية. تحقق من المضيف والمنفذ.</string>
+    <!-- VNC-STUB FIX: تُعرض عند محاولة المستخدم الاتصال عبر VNC. عميل RFB
+         الحالي (com.undatech.opaque.*) ما زال مجرد stub بلا تنفيذ فعلي للبروتوكول —
+         أي محاولة اتصال VNC تفشل دائمًا بالتصميم. هذه الرسالة توضح أن السبب
+         ميزة ناقصة وليست مشكلة شبكة أو بيانات اعتماد، لتجنّب إعادة المحاولة عبثًا. -->
+    <string name="error_vnc_not_implemented">دعم VNC غير مُفعَّل بعد في هذا الإصدار. لا يمكن لاتصالات VNC أن تنجح حاليًا. يرجى استخدام RDP أو SSH بدلًا من ذلك.</string>
+    <string name="vnc_unavailable_notice">⚠ دعم VNC غير مُفعَّل بعد في هذا الإصدار — ستفشل الاتصالات. استخدم RDP أو SSH حاليًا.</string>
+    <string name="error_ssh_connect_failed">فشل الاتصال بـ SSH</string>
+    <string name="error_connection_lost">انقطع الاتصال</string>
+
+    <!-- BUG-DECRYPT FIX: يظهر عند فقدان مفتاح Keystore بعد إعادة التثبيت أو الاستعادة -->
+    <string name="error_credentials_lost">تعذّر فكّ تشفير بيانات الاعتماد المحفوظة (فُقد مفتاح Keystore بعد إعادة التثبيت أو الاستعادة). يُرجى تعديل الملف الشخصي وإعادة إدخال كلمة المرور.</string>
+
+    <!-- BUG-i18n FIX: نصوص علامات تبويب الجلسة وإعادة الاتصال — كانت مُضمَّنة بالإنجليزية -->
+    <string name="session_tab_auth_failed">فشل المصادقة</string>
+    <string name="session_tab_error">خطأ</string>
+    <!-- %1$d = المحاولة الحالية، %2$d = إجمالي المحاولات -->
+    <string name="session_tab_retry">إعادة %1$d/%2$d</string>
+    <!-- %1$d = المحاولة الحالية، %2$d = إجمالي المحاولات، %3$d = ثواني الانتظار -->
+    <string name="session_connecting_countdown">إعادة الاتصال (%1$d/%2$d) خلال %3$d ثانية…</string>
+    <!-- %1$d = المحاولة الحالية، %2$d = إجمالي المحاولات -->
+    <string name="session_connecting_retry">إعادة الاتصال (%1$d/%2$d)…</string>
+    <string name="disconnect_reason_app_closed">أُغلق التطبيق</string>
+
+    <!-- Bug #6: تسمية فلتر "الكل" -->
+    <string name="filter_all">الكل</string>
+
+    <!-- ── i18n FIX: نصوص كانت مُضمَّنة بالإنجليزية في كود Kotlin ────────── -->
+    <!-- MainViewModel: الاسم الافتراضي لملفات .rdp المستوردة -->
+    <string name="imported_profile_name">مستورد</string>
+    <!-- RdpSessionViewModel: خطأ عند عدم العثور على معرّف الملف الشخصي في قاعدة البيانات -->
+    <string name="error_profile_not_found">لم يُعثر على الملف الشخصي</string>
+    <!-- RdpSessionViewModel: رسالة احتياطية للاستثناءات غير المتوقعة -->
+    <string name="error_unexpected">خطأ غير متوقع</string>
+    <!-- Components: تسمية رقاقة WoL على بطاقة الاتصال -->
+    <string name="chip_wol">WoL</string>
+
+    <!-- ── ميزة مشاركة الملفات ─────────────────────────────────────────── -->
+    <string name="ft_toolbar_button">ملفات</string>
+    <string name="ft_title">مشاركة الملفات</string>
+    <string name="ft_phone_files">ملفات الهاتف</string>
+    <string name="ft_remote_files">ملفات الجهاز</string>
+    <string name="ft_server_info">معلومات الخادم</string>
+    <string name="ft_empty_folder">المجلد فارغ</string>
+    <string name="ft_server_running">الخادم نشط</string>
+    <string name="ft_server_starting">جارٍ تشغيل الخادم…</string>
+    <string name="ft_server_hint">افتح هذا العنوان في متصفح الجهاز البعيد:</string>
+    <string name="ft_download_tip">تنزيل</string>
+    <string name="ft_upload_tip">رفع</string>
+    <string name="ft_rdp_vnc_note">لجلسات RDP/VNC تعمل المشاركة عبر خادم HTTP محلي.\nافتح الرابط أعلاه من متصفح الجهاز البعيد.</string>
+    <string name="ft_permission_needed">يجب منح إذن الوصول للتخزين لتصفح ملفات الهاتف</string>
+    <string name="ft_grant">منح الإذن</string>
+    <string name="ft_retry">إعادة المحاولة</string>
+
+    <!-- FIX 4: رسائل خطأ FileTransfer -->
+    <string name="ft_error_sftp_connect">فشل الاتصال بـ SFTP</string>
+    <string name="ft_error_list_dir">فشل تصفح المجلد</string>
+    <string name="ft_error_upload">فشل رفع الملف</string>
+    <string name="ft_error_download">فشل تنزيل الملف</string>
+    <!-- FIX 4: نصوص شريط التقدم -->
+    <string name="ft_progress_uploading">جارٍ رفع</string>
+    <string name="ft_progress_downloading">جارٍ تنزيل</string>
+    <string name="ft_progress_uploaded">تم رفعه</string>
+    <string name="ft_progress_downloaded">تم تنزيله</string>
+
+    <!-- FIX 5: مفاتيح الطرفية -->
+    <string name="term_key_esc">خروج</string>
+    <string name="term_key_tab">جدولة</string>
+    <string name="term_key_home">بداية</string>
+    <string name="term_key_end">نهاية</string>
+
+    <!-- FIX 6: placeholder حقل الاتصال السريع -->
+    <string name="quick_connect_placeholder">192.168.1.1:3389</string>
+
+    <!-- FIX-VALID: التحقق من اسم المستخدم في الاتصال السريع -->
+    <string name="error_username_required">اسم المستخدم مطلوب</string>
+
+    <!-- FIX-I18N: تلميحات لوحة خادم HTTP (كانت نصوصاً إنجليزية مُضمَّنة) -->
+    <string name="ft_http_download_hint">انقر على أي ملف في المتصفح لتنزيله</string>
+    <string name="ft_http_upload_hint">استخدم نموذج الرفع في أسفل الصفحة</string>
+
+
+    <!-- BUG-5 FIX: تسميات وحدات حجم التخزين بالعربية -->
+    <string name="storage_unit_b">ب</string>
+    <string name="storage_unit_kb">ك.ب</string>
+    <string name="storage_unit_mb">م.ب</string>
+    <string name="storage_unit_gb">غ.ب</string>
+    <string name="storage_free_of">%1$s مساحة حرة من %2$s</string>
+    <string name="storage_free">حرة</string>
+
+    <!-- FIX-MED-R3-3: رسالة مميزة لفشل Keystore أثناء التحقق من رمز PIN -->
+    <string name="error_pin_keystore_verify">مفتاح أمان الجهاز غير متاح — تعذّر التحقق من رمز PIN. أعِد تشغيل الجهاز وحاول مجدداً.</string>
+
+    <!-- FIX-MED-R3-4: زر مسح بصمة TOFU وحوار التأكيد -->
+    <string name="tofu_clear_section">ثقة الخادم</string>
+    <string name="tofu_clear_button_ssh">مسح بصمة SSH المحفوظة</string>
+    <string name="tofu_clear_button_tunnel">مسح بصمة النفق المحفوظة</string>
+    <string name="tofu_clear_confirm_title">مسح بصمة الخادم؟</string>
+    <string name="tofu_clear_confirm_message">ستُحذف البصمة المحفوظة لهذا الخادم. عند الاتصال التالي ستتم مطالبتك بالثقة بالخادم من جديد.</string>
+    <string name="tofu_cleared">تمّ مسح البصمة. سيُعاد التحقق من الخادم عند الاتصال التالي.</string>
+
+    <!-- FIX-LIMIT: تنبيه حد سجل الاتصالات -->
+    <string name="history_limit_note">يعرض آخر ٥٠ اتصالاً فقط</string>
+    <string name="cd_paste">لصق من الحافظة</string>
+    <string name="cd_disconnect">قطع الاتصال</string>
+    <string name="cd_scroll_to_bottom">التمرير للأسفل</string>
+
+    <!-- HIGH-2 FIX: تحذير VNC بدون تشفير -->
+    <string name="warning_vnc_no_tls">⚠ خادم VNC هذا لا يدعم تشفير TLS. قد تكون جلستك وكلمة مرورك مرئية للآخرين على الشبكة. استمر فقط على شبكة خاصة موثوقة.</string>
+
+    <!-- CRIT-1 FIX: رسائل خطأ SSH عامة (بدون تسريب بيانات الخادم) -->
+    <string name="error_ssh_timeout">انتهت مهلة اتصال SSH. تحقق من عنوان المضيف والمنفذ وحاول مجدداً.</string>
+    <string name="error_ssh_refused">رُفض اتصال SSH. تأكد من أن الخادم يعمل والمنفذ صحيح.</string>
+</resources>

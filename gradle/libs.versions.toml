@@ -1,0 +1,168 @@
+# ════════════════════════════════════════════════════════════════════
+# HexRDP — Version Catalog (آخر تحديث: يونيو 2026)
+# ════════════════════════════════════════════════════════════════════
+#
+# ⚠️  قواعد صارمة:
+#   1. kotlin + ksp يجب أن يتطابقا: ksp = "<kotlin>-<patch>"
+#   2. hilt (dagger) + hiltNavCompose إصدارات منفصلة لكن متوافقة
+#   3. bouncycastle: bcprov + bctls يجب أن يكونا نفس الإصدار دائماً
+#   4. jsch 0.2.x يستخدم package اسمه com.jcraft.jsch — لا تغيير في الكود
+#   5. coil: نبقى على 2.7.0 (آخر 2.x) — coil3 يغيّر package name كاملاً
+#
+# ════════════════════════════════════════════════════════════════════
+
+[versions]
+
+# ── Build Tools ──────────────────────────────────────────────────────
+agp = "8.7.3"            # Android Gradle Plugin — متوافق مع Gradle 8.10.2
+
+# ── Kotlin / KSP (يجب أن يتطابقا!) ──────────────────────────────────
+# 🔴 CRITICAL: القاعدة = ksp يبدأ بنفس إصدار kotlin تماماً
+#   kotlin=2.1.21 → ksp=2.1.21-2.0.1  ✅
+#   kotlin=2.1.0  → ksp=2.1.21-2.0.1  ❌ (سيفشل البناء)
+kotlin = "2.1.21"        # was: 2.1.0 → أحدث 2.1.x stable + يُصلح bug في KSP
+ksp    = "2.1.21-2.0.1"  # was: 2.1.0-1.0.29 → يجب مطابقة kotlin
+
+# ── Hilt (DI) ────────────────────────────────────────────────────────
+# 🔴 CRITICAL: Hilt 2.54 + Kotlin 2.1.x = خطأ:
+#   "[Hilt] Provided Metadata instance has version 2.1.0, max is 2.0.0"
+#   السبب: kotlinx-metadata-jvm القديم داخل Hilt 2.54 لا يدعم Kotlin 2.1.x
+#   الحل: Hilt 2.56+ يحتوي kotlinx-metadata-jvm محدَّث
+hilt          = "2.56"   # was: 2.54 → 🔴 الإصلاح الأساسي لفشل البناء
+hiltNavCompose = "1.2.0" # androidx.hilt — stable (1.4.x لا تزال beta)
+
+# ── AndroidX Core ────────────────────────────────────────────────────
+coreKtx             = "1.16.0"    # was: 1.15.0
+appcompat           = "1.7.0"     # keep
+lifecycleRuntimeKtx = "2.9.0"    # was: 2.8.7
+activityCompose     = "1.10.1"   # was: 1.9.3
+navigationCompose   = "2.8.5"    # keep — 2.9.x تغيير سلوك NavController
+room                = "2.7.1"    # was: 2.6.1
+datastore           = "1.1.4"    # was: 1.1.1
+coroutines          = "1.10.2"   # was: 1.9.0
+workManager         = "2.11.2"   # was: 2.10.0 → من الوثائق الرسمية
+splashscreen        = "1.2.0"    # was: 1.0.1  → من الوثائق الرسمية
+
+# ── Compose ──────────────────────────────────────────────────────────
+composeBom = "2026.06.00"  # was: 2026.04.01 → أحدث stable BOM (يونيو 2026)
+                           # يُحدّث: Material3 1.11.3, UI, Foundation, Animation تلقائياً
+
+# ── Testing (stable لسنوات) ───────────────────────────────────────────
+junit        = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
+# ── Network / Crypto / SSH ───────────────────────────────────────────
+# BouncyCastle — TLS/NLA encryption لـ RDP
+# ⚠️ bcprov + bctls يجب أن يكونا نفس الإصدار دائماً
+bouncycastle = "1.84"  # was: 1.80 → Apr 2026 (أحدث stable)
+                       # jsch الجديد نفسه يعتمد على 1.84 → نوحّد الإصدار
+
+# JSch (com.github.mwiede) — SSH2 client لخاصية SSH Terminal
+# package name: com.jcraft.jsch — محفوظ في كل الإصدارات → لا تغيير في الكود
+# الإصدار 0.2.x على Maven Central، أحدث 0.2.x هو 0.2.24
+jsch = "0.2.24"  # was: 0.2.18
+                 # ملاحظة: المشروع انتقل لنظام إصدار جديد (2.x)
+                 # أحدث إصدار 2.28.2 لكن يتطلب اختبار التوافق
+
+# ── UI Libraries ─────────────────────────────────────────────────────
+# Coil — تحميل الصور
+# ⚠️ coil3 يغيّر package name إلى io.coil-kt.coil3
+#    وتتطلب الهجرة تغيير imports + إضافة coil-network-okhttp
+#    → نبقى على 2.7.0 (آخر 2.x) حتى الهجرة المقصودة
+coil   = "2.7.0"  # keep — آخر إصدار 2.x، لا upgrade تلقائي لـ 3.x
+
+# Lottie — أنيميشن After Effects
+lottie = "6.7.1"  # was: 6.6.2 → أحدث stable (أكتوبر 2025)
+
+# Gson — JSON serialization
+gson = "2.12.0"  # was: 2.11.0 → أحدث على Maven Central
+
+# Biometric — لمصادقة بصمة الإصبع / وجه / رمز الجهاز
+# ✅ 1.1.0 هو آخر stable release — 1.2.0 غير موجود على Google Maven
+biometric = "1.2.0-alpha05"
+
+# HIGH-3 FIX: SQLCipher — transparent AES-256 encryption for the Room SQLite database
+# 🔴 CRITICAL FIX (build break): the artifact "net.zetetic:android-database-sqlcipher" is
+# the OLD/deprecated coordinate — it ships classes under the "net.sqlcipher.database" package.
+# Our code (DatabaseEncryptionMigrator.kt, AppModule.kt) imports "net.zetetic.database.sqlcipher.*",
+# which is the package shipped by the NEW/renamed artifact "net.zetetic:sqlcipher-android".
+# Using the old artifact name with the new package imports causes "Unresolved reference 'zetetic'"
+# at compile time even though the Maven repo resolves fine. Fixed by switching the artifact id
+# below from "android-database-sqlcipher" to "sqlcipher-android" (see [libraries] section).
+# 4.10.0 verified present on Maven Central (net/zetetic/sqlcipher-android/4.10.0).
+sqlcipher  = "4.10.0"  # was: 4.5.4 (android-database-sqlcipher) → wrong artifact for net.zetetic.database.sqlcipher.* package
+# MED-2 FIX: security-crypto — EncryptedFile (AES-256-GCM) for screenshot thumbnails
+security-crypto = "1.1.0-alpha06"
+# 🔴 CRITICAL FIX: net.zetetic:sqlcipher-android requires androidx.sqlite as an explicit
+# companion dependency (it is NOT pulled in transitively by the AAR). 2.6.2 is the latest stable.
+androidxSqlite = "2.6.2"
+
+# bVNC — مكتبة VNC/RFB (libvncserver) لخاصية الاتصال بـ VNC
+# ✅ الـ repo الحقيقي هو: iiordanov/remote-desktop-clients (وليس iiordanov/bVNC)
+# ✅ تنسيق الـ tag الصحيح: RELEASE-v6.4.2 (وليس أرقام مثل 3.10.1)
+# JitPack multi-module: group = com.github.iiordanov.remote-desktop-clients
+# bvnc = "RELEASE-v6.4.2"  ← معطَّل: JitPack لا يستطيع بناء bVNC (NDK/FreeRDP/sqlcipher)
+
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+# AppCompat — provides Theme.AppCompat.DayNight.NoActionBar for XML themes
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavCompose" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workManager" }
+splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+bouncycastle-bcprov = { group = "org.bouncycastle", name = "bcprov-jdk18on", version.ref = "bouncycastle" }
+bouncycastle-bctls = { group = "org.bouncycastle", name = "bctls-jdk18on", version.ref = "bouncycastle" }
+# FIX-HTTPS: bcpkix provides JcaX509v3CertificateBuilder used for self-signed TLS cert generation
+bouncycastle-bcpkix = { group = "org.bouncycastle", name = "bcpkix-jdk18on", version.ref = "bouncycastle" }
+# JSch fork (com.github.mwiede) — actively maintained pure-Java SSH2 client,
+# used for the SSH/terminal protocol option. No NDK/native code required.
+jsch = { group = "com.github.mwiede", name = "jsch", version.ref = "jsch" }
+lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+# Biometric — مصادقة بيومترية (BiometricManager, BiometricPrompt)
+androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
+# HIGH-3 FIX: SQLCipher — AES-256 encrypted SQLite via Room's openHelperFactory
+# 🔴 CRITICAL FIX (build break): artifact id changed from "android-database-sqlcipher" (old,
+# package net.sqlcipher.database.*) to "sqlcipher-android" (new, package net.zetetic.database.sqlcipher.*)
+# to match the imports actually used in the codebase.
+sqlcipher = { group = "net.zetetic", name = "sqlcipher-android", version.ref = "sqlcipher" }
+# 🔴 CRITICAL FIX: required explicit companion dependency for net.zetetic:sqlcipher-android
+# (the androidx.sqlite SupportSQLite* interfaces that SupportFactory implements).
+androidx-sqlite = { group = "androidx.sqlite", name = "sqlite", version.ref = "androidxSqlite" }
+# MED-2 FIX: security-crypto — EncryptedFile / EncryptedSharedPreferences (AES-256-GCM)
+security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "security-crypto" }
+# bVNC module داخل iiordanov/remote-desktop-clients (JitPack multi-module format)
+# bvnc = { group = "com.github.iiordanov.remote-desktop-clients", name = "bVNC", version.ref = "bvnc" }  ← معطَّل: local stubs بدلاً منه
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

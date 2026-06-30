@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!--
+            BUG 2 FIX (CORRECTED): Previous rule used domain="sharedpref" which does
+            not match Preferences DataStore files.  DataStore stores its file at:
+                filesDir/datastore/hex_rdp_settings.preferences_pb   → domain="file"
+            The old exclusion was a no-op; the encrypted PIN was still cloud-backed.
+        -->
+        <exclude domain="file" path="datastore/hex_rdp_settings.preferences_pb"/>
+
+        <!--
+            NEW-CRIT-2 FIX: Exclude EncryptedSharedPreferences introduced by CRIT-5 fix.
+            CRIT-5 migrated settings to EncryptedSharedPreferences("hex_rdp_settings"),
+            stored at shared_prefs/hex_rdp_settings.xml → domain="sharedpref".
+            The cloud-backup section lacked this exclusion, so security-sensitive settings
+            (PIN_LOCK_ENABLED, PIN hash) were included in cloud backup.
+            Per the principle of least exposure, security settings must not leave the device.
+        -->
+        <exclude domain="sharedpref" path="hex_rdp_settings"/>
+        <!--
+            BUG 2 FIX: Exclude the database from cloud backup.
+            Keystore keys are device-bound; restoring the DB without its key
+            makes every encrypted password unrecoverable (decrypt() returns "").
+        -->
+        <exclude domain="database" path="hex_rdp_database"/>
+
+        <!--
+            FIX #6 (Security): Exclude TOFU host-key stores from cloud backup.
+            Cloud-restoring TOFU keys onto a different device means the app will
+            trust host fingerprints it has never independently verified — enabling
+            a silent MITM attack on restored sessions.
+        -->
+        <exclude domain="sharedpref" path="hexrdp_tofu_ssh"/>
+        <exclude domain="sharedpref" path="hexrdp_tofu_tunnel"/>
+        <exclude domain="sharedpref" path="hexrdp_tofu_sftp"/>
+        <!--
+            CRITICAL-2 FIX: Exclude VNC TOFU fingerprint store from cloud backup.
+            hexrdp_tofu_vnc holds SHA-256 TLS certificate fingerprints for VNC servers.
+            Cloud-restoring this onto a different device causes the app to silently trust
+            certificates it has never independently verified — a MITM vector on VNC-over-TLS.
+        -->
+        <exclude domain="sharedpref" path="hexrdp_tofu_vnc"/>
+
+        <!--
+            FIX #6 (Security): Exclude the PIN lockout counter from cloud backup.
+            Restoring pin_lockout resets the brute-force attempt counter, allowing
+            an attacker to bypass the lockout by triggering a cloud restore.
+        -->
+        <exclude domain="sharedpref" path="pin_lockout"/>
+
+        <!--
+            FIX-SCREENSHOT-BACKUP: Exclude session screenshots (filesDir/screenshots/).
+            Screenshots contain remote-desktop framebuffer content which may include
+            confidential corporate data, credentials, or documents. They must not
+            leave the device via cloud backup or device-to-device transfer.
+        -->
+        <exclude domain="file" path="screenshots"/>
+
+        <!--
+            CRIT-R1 FIX: Exclude hex_rdp_db_meta from cloud backup.
+            Contains the CryptoHelper-encrypted SQLCipher passphrase.
+            Keystore keys are device-bound; backing up and restoring this file
+            on another device renders the entire database unreadable.
+        -->
+        <exclude domain="sharedpref" path="hex_rdp_db_meta"/>
+    </cloud-backup>
+    <device-transfer>
+        <!-- Same reasoning applies to device-to-device transfers. -->
+        <exclude domain="file" path="datastore/hex_rdp_settings.preferences_pb"/>
+        <!-- NEW-CRIT-2 FIX: Same as cloud-backup — exclude EncryptedSharedPreferences. -->
+        <exclude domain="sharedpref" path="hex_rdp_settings"/>
+        <exclude domain="database" path="hex_rdp_database"/>
+        <!-- FIX #6: TOFU keys and lockout counter must not transfer between devices. -->
+        <exclude domain="sharedpref" path="hexrdp_tofu_ssh"/>
+        <exclude domain="sharedpref" path="hexrdp_tofu_tunnel"/>
+        <exclude domain="sharedpref" path="hexrdp_tofu_sftp"/>
+        <!-- CRITICAL-2 FIX: VNC TOFU must not transfer between devices (same as above). -->
+        <exclude domain="sharedpref" path="hexrdp_tofu_vnc"/>
+        <exclude domain="sharedpref" path="pin_lockout"/>
+        <!-- FIX-SCREENSHOT-BACKUP: same reasoning as cloud-backup section above. -->
+        <exclude domain="file" path="screenshots"/>
+
+        <!-- CRIT-R1 FIX: DB passphrase must not transfer between devices. -->
+        <exclude domain="sharedpref" path="hex_rdp_db_meta"/>
+    </device-transfer>
+</data-extraction-rules>

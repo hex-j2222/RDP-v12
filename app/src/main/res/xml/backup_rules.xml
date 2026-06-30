@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!--
+        BUG 2 FIX (CORRECTED): The previous rule excluded domain="sharedpref"
+        path="hex_rdp_settings.xml", but the app uses Preferences DataStore — not
+        SharedPreferences. DataStore files live at:
+            filesDir/datastore/hex_rdp_settings.preferences_pb
+        which maps to domain="file", not "sharedpref", and carries a .preferences_pb
+        extension, not .xml.  The old rule matched nothing, so the DataStore file
+        (including the encrypted PIN) was still included in backups.
+    -->
+    <exclude domain="file" path="datastore/hex_rdp_settings.preferences_pb"/>
+
+    <!--
+        NEW-CRIT-2 FIX: Exclude EncryptedSharedPreferences introduced by CRIT-5 fix.
+        CRIT-5 migrated settings from DataStore to EncryptedSharedPreferences("hex_rdp_settings"),
+        which Android stores at: shared_prefs/hex_rdp_settings.xml → domain="sharedpref".
+        The rule above excluded only the old DataStore path and left the new file unprotected,
+        so hex_rdp_settings.xml (PIN_LOCK_ENABLED, PIN hash, all settings) was included in
+        cloud backups. Per the principle of least exposure, security settings must never be
+        backed up regardless of encryption level.
+    -->
+    <exclude domain="sharedpref" path="hex_rdp_settings"/>
+    <!--
+        BUG 2 FIX: Exclude the database from backup.
+        Android Keystore encryption keys are device-bound and never backed up.
+        If the database is restored on a new device, all encrypted passwords
+        become unrecoverable. Excluding the DB prevents silent data corruption.
+    -->
+    <exclude domain="database" path="hex_rdp_database"/>
+
+    <!--
+        FIX #6 (Security): Exclude TOFU host-key stores from backup.
+        Restoring TOFU keys from a backup onto a different device (or after a
+        factory reset) can cause the app to silently trust a server whose
+        fingerprint has changed — a potential MITM scenario. Device-local TOFU
+        must be established fresh on each device to be meaningful.
+    -->
+    <exclude domain="sharedpref" path="hexrdp_tofu_ssh"/>
+    <exclude domain="sharedpref" path="hexrdp_tofu_tunnel"/>
+    <exclude domain="sharedpref" path="hexrdp_tofu_sftp"/>
+    <!--
+        CRITICAL-2 FIX: Exclude VNC TOFU fingerprint store from backup.
+        hexrdp_tofu_vnc holds SHA-256 TLS fingerprints for VNC servers.
+        Restoring these onto a different device causes the app to silently trust
+        certificates it has never independently verified, enabling a MITM attack
+        against VNC-over-TLS sessions. TOFU trust must be established fresh on
+        each device — exactly as is already done for SSH, tunnel, and SFTP.
+    -->
+    <exclude domain="sharedpref" path="hexrdp_tofu_vnc"/>
+
+    <!--
+        FIX #6 (Security): Exclude the PIN lockout counter from backup.
+        pin_lockout stores the failed-attempt counter that enforces the
+        brute-force delay. Restoring an older backup would reset this counter,
+        letting an attacker with physical access bypass the lockout by
+        restoring a clean backup before trying again.
+    -->
+    <exclude domain="sharedpref" path="pin_lockout"/>
+
+    <!--
+        FIX-SCREENSHOT-BACKUP: Exclude session screenshots from backup.
+        Screenshots are saved to filesDir/screenshots/ and may contain
+        confidential remote-desktop content (corporate data, passwords, documents).
+        Restoring them to a different device would leak that content outside the
+        security context of the original device.
+    -->
+    <exclude domain="file" path="screenshots"/>
+
+    <!--
+        CRIT-R1 FIX: Exclude the database passphrase store from backup.
+        hex_rdp_db_meta holds CryptoHelper-encrypted SQLCipher passphrase.
+        Backing up Keystore-wrapped material violates minimal-exposure; restoring
+        it on a different device makes the DB unreadable (key is device-bound).
+    -->
+    <exclude domain="sharedpref" path="hex_rdp_db_meta"/>
+</full-backup-content>

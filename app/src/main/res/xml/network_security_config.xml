@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  CRIT-3 FIX: Explicit Network Security Configuration.
+  - Blocks all cleartext (HTTP) traffic for all domains.
+  - Trusts only system CAs — no user-installed CAs (prevents corp-MITM attacks).
+  - Prevents accidental plain-text connections even on Android 6-8 where the
+    platform default could allow cleartext in some edge cases.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Trust only system CA store — user-installed CAs are excluded. -->
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HexRDP</string>
+
+    <!-- Home -->
+    <string name="no_connections">No Connections Yet</string>
+    <string name="add_first_connection">Launch your first remote session into the digital cosmos</string>
+    <string name="add_connection">Add Connection</string>
+    <string name="connect">Connect</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Profile Form -->
+    <string name="new_connection">New Connection</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="connection_name">Connection Name</string>
+    <string name="host_ip">Host / IP Address</string>
+    <string name="port">Port</string>
+    <!-- Profile Form — redesigned layout (Quick Connect / Optional Settings cards) -->
+    <string name="quick_connect">Quick Connect</string>
+    <string name="quick_connect_desc">Just the essentials — fill these in and you\'re ready to go</string>
+    <string name="advanced_optional">Optional Settings</string>
+    <string name="advanced_optional_desc">Tap any card to fine-tune it — only if you need to</string>
+    <string name="status_on">On</string>
+    <string name="status_off">Off</string>
+    <string name="section_security_auth">Security &amp; Sign-in</string>
+    <string name="section_security_auth_desc">Domain and certificate trust</string>
+    <string name="section_display_performance">Display &amp; Performance</string>
+    <string name="section_display_performance_desc">Color, resolution and speed</string>
+    <string name="card_gateway_desc">Route through a Remote Desktop Gateway</string>
+    <string name="card_tunnel_desc">Route through an SSH jump host</string>
+    <string name="card_wol_desc">Wake the remote PC before connecting</string>
+    <string name="card_trust_desc">Manage saved server fingerprints</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="domain_optional">Domain (optional)</string>
+    <string name="use_nla">Use NLA Authentication</string>
+    <!-- BUG-3 FIX: label for per-profile self-signed certificate acceptance toggle -->
+    <string name="accept_self_signed_cert">Accept Self-Signed Certificate (insecure)</string>
+    <string name="protocol">Protocol</string>
+    <string name="protocol_locked_hint">Protocol cannot be changed after creation — create a new profile instead.</string>
+    <string name="protocol_change_title">Change Protocol?</string>
+    <string name="protocol_change_warning">Changing the protocol may reset protocol-specific fields (e.g. domain, VNC view-only, SSH key). Other settings like host, port, username, and password will be kept.</string>
+    <string name="protocol_change_confirm">Change</string>
+    <string name="domain">Domain (optional)</string>
+    <string name="vnc_password">VNC Password</string>
+    <string name="vnc_view_only">View Only (disable input)</string>
+    <string name="rd_gateway">RD Gateway</string>
+    <string name="use_rd_gateway">Connect Through RD Gateway</string>
+    <string name="gateway_host">Gateway Host / IP</string>
+    <string name="gateway_port">Gateway Port</string>
+    <string name="gateway_username">Gateway Username</string>
+    <string name="gateway_password">Gateway Password</string>
+    <string name="gateway_domain">Gateway Domain (optional)</string>
+    <string name="ssh_authentication">SSH Authentication</string>
+    <string name="ssh_auth_password">Password</string>
+    <string name="ssh_auth_key">Private Key</string>
+    <string name="ssh_private_key">Private Key (PEM)</string>
+    <string name="ssh_key_passphrase">Key Passphrase (optional)</string>
+
+    <!-- SSH Tunnel -->
+    <string name="ssh_tunnel">SSH Tunnel</string>
+    <string name="use_ssh_tunnel">Tunnel Through SSH (Jump Host)</string>
+    <string name="ssh_tunnel_desc">Forward RDP/VNC through a secure SSH connection. Eliminates the need for RD Gateway in many environments.</string>
+    <string name="ssh_tunnel_host">SSH Host / IP</string>
+    <string name="ssh_tunnel_port">SSH Port</string>
+    <string name="ssh_tunnel_username">SSH Username</string>
+    <string name="ssh_tunnel_password">SSH Password</string>
+    <string name="ssh_tunnel_auth">SSH Tunnel Authentication</string>
+    <string name="ssh_tunnel_private_key">SSH Tunnel Private Key (PEM)</string>
+    <string name="ssh_tunnel_key_passphrase">SSH Key Passphrase (optional)</string>
+    <string name="resolution">Display Resolution</string>
+    <string name="resolution_auto">Auto (match device)</string>
+    <string name="resolution_custom">Custom…</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+
+    <!-- Delete -->
+    <string name="delete_confirm_title">Delete Connection</string>
+    <string name="delete_confirm_message">Delete \"%s\"? This action cannot be undone.</string>
+
+    <!-- Subscribe -->
+    <string name="welcome_title">Welcome to HexRDP</string>
+    <string name="welcome_message">Join our Telegram channel for the latest updates, tips, and support from the developer community.</string>
+    <string name="subscribe_title">Stay Connected</string>
+    <string name="subscribe_message">Get the latest updates, features, and support by joining our Telegram channel.</string>
+    <string name="join_channel">Join Telegram Channel</string>
+    <string name="later">Later</string>
+
+    <!-- Network -->
+    <string name="poor_network_warning">Weak signal — switching to low-bandwidth mode</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
+    <string name="theme">Color Theme</string>
+    <string name="theme_space">Deep Space</string>
+    <string name="theme_nebula">Nebula</string>
+    <string name="theme_aurora">Aurora</string>
+    <string name="language">Language</string>
+    <string name="lang_system">System Default</string>
+
+    <!-- Cursor -->
+    <string name="cursor_input">Cursor &amp; Input</string>
+    <string name="cursor_style">Cursor Style</string>
+    <string name="cursor_default">Space Arrow</string>
+    <string name="cursor_crosshair">HUD Crosshair</string>
+    <string name="cursor_dot">Plasma Dot</string>
+    <string name="cursor_circle">Orbit Ring</string>
+    <string name="cursor_size">Cursor Size</string>
+    <string name="touchpad_sensitivity">Touchpad Sensitivity</string>
+    <string name="haptic_feedback">Haptic Feedback</string>
+    <string name="sound_effects">Sound Effects</string>
+    <string name="sound_effects_desc">Galaxy sounds for taps, toggles, and connection events</string>
+
+    <!-- Connection -->
+    <string name="connection">Connection</string>
+    <string name="auto_reconnect">Auto Reconnect</string>
+    <string name="compression_quality">Frame Compression Quality</string>
+    <string name="default_resolution">Default Display Resolution</string>
+    <string name="run_in_background">Keep Session in Background</string>
+    <string name="run_in_background_desc">Stay connected when switching apps or locking the screen</string>
+
+    <!-- Session Controls -->
+    <string name="session_controls">In-Session Controls</string>
+    <string name="show_toolbar_by_default">Show Toolbar by Default</string>
+    <string name="show_extra_keys_by_default">Show Keyboard Shortcuts Bar</string>
+
+    <!-- Developer -->
+    <string name="developer">Developer</string>
+    <string name="developer_telegram">GoToHEX — Tap to open Telegram</string>
+    <string name="developer_youtube">@dev-hex404 — Tap to open YouTube</string>
+    <string name="about">About</string>
+    <string name="by_developer">by GoToHEX</string>
+
+    <!-- Background session -->
+    <string name="background_session_channel">Active Remote Sessions</string>
+    <string name="background_session_description">Shows while a remote desktop session is running in the background</string>
+    <string name="background_session_title">HexRDP session active</string>
+    <string name="background_session_text">Connected to %1$s — tap to return</string>
+
+    <!-- Session screen -->
+    <string name="connecting_to">Connecting to %1$s…</string>
+    <string name="session_disconnected">Session Ended</string>
+    <string name="reconnect">Reconnect</string>
+    <string name="close">Close</string>
+    <string name="session_error">Connection Error</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="extra_keys">Extra Keys</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="take_screenshot">Screenshot</string>
+    <string name="screenshot_saved">Screenshot saved to gallery</string>
+    <string name="screenshot_failed">Failed to save screenshot</string>
+    <string name="ctrl">Ctrl</string>
+    <string name="alt">Alt</string>
+    <string name="esc">Esc</string>
+    <string name="tab">Tab</string>
+    <string name="win">Win</string>
+    <string name="fn">Fn</string>
+    <string name="delete_key">Del</string>
+    <string name="page_up">PgUp</string>
+    <string name="page_down">PgDn</string>
+    <string name="home_key">Home</string>
+    <string name="end_key">End</string>
+    <string name="initializing">INITIALIZING WARP DRIVE…</string>
+    <string name="warp_connected">WARP CONNECTED</string>
+
+    <!-- UX-06: RDP Advanced settings -->
+    <string name="rdp_advanced">Advanced Settings</string>
+    <string name="color_depth">Color Depth</string>
+    <string name="color_depth_16">16-bit (Fastest)</string>
+    <string name="color_depth_24">24-bit</string>
+    <string name="color_depth_32">32-bit (Best Quality)</string>
+    <string name="performance_quality">Connection Quality</string>
+    <string name="performance_low">2G / Slow</string>
+    <string name="performance_medium">3G / Medium</string>
+    <string name="performance_wifi">Wi-Fi</string>
+    <string name="performance_lan">LAN / Fast</string>
+    <string name="performance_auto">Auto-Detect</string>
+    <string name="enable_sound">Enable Remote Sound</string>
+    <!-- UX-07: View-only banner -->
+    <string name="view_only_banner">VIEW ONLY — Input disabled</string>
+
+    <!-- ✅ إعدادات جديدة -->
+    <string name="scroll_sensitivity">Scroll Sensitivity</string>
+    <string name="right_click_long_press">Long Press = Right Click</string>
+    <string name="right_click_long_press_desc">Hold finger to trigger right mouse button</string>
+    <string name="keep_screen_on">Keep Screen On</string>
+    <string name="keep_screen_on_desc">Prevent screen from sleeping during sessions</string>
+    <string name="reconnect_attempts">Max Reconnect Attempts</string>
+
+    <!-- ✅ قسم الأمان -->
+    <string name="security">Security</string>
+    <string name="biometric_lock">Biometric Lock</string>
+    <string name="biometric_lock_desc">Unlock app with fingerprint or face</string>
+    <string name="pin_lock">PIN Lock</string>
+    <string name="pin_lock_desc">Set a numeric PIN to unlock app</string>
+    <string name="pin_lock_set">PIN is set — tap to change or disable</string>
+
+    <!-- Wake-on-LAN -->
+    <string name="wol_section">Wake-on-LAN</string>
+    <string name="additional_settings">Additional settings</string>
+    <string name="wol_enable">Enable Wake-on-LAN</string>
+    <string name="wol_mac_address">MAC Address (AA:BB:CC:DD:EE:FF)</string>
+    <string name="wol_broadcast">Broadcast Address</string>
+    <string name="wol_hint">Send Magic Packet to wake the device before connecting. Use the subnet broadcast (e.g. 192.168.1.255) for cross-router delivery.</string>
+    <string name="wol_mac_invalid">Invalid MAC address format</string>
+    <string name="wol_wake">Wake</string>
+    <string name="wol_sent">Magic Packet sent — waiting for device…</string>
+    <string name="wol_error">Failed to send Wake-on-LAN packet</string>
+    <!-- Import .rdp file -->
+    <string name="import_rdp_label">Import</string>
+    <string name="import_rdp_title">Import .RDP File</string>
+    <string name="import_rdp_desc">Open a Windows Remote Desktop (.rdp) file to import its connection settings</string>
+    <string name="import_rdp_review">Review imported connection and save</string>
+
+    <!-- ── App Lock Screen ───────────────────────────────────────────────── -->
+    <string name="unlock_to_continue">Enter PIN to continue</string>
+    <string name="biometric_prompt_title">Unlock HexRDP</string>
+    <string name="biometric_prompt_subtitle">Use your fingerprint or device credentials</string>
+    <string name="pin_locked_message">Locked for %1$d seconds</string>
+    <string name="pin_attempts_remaining">%1$d attempts remaining</string>
+    <!-- BUG 3 FIX: shown when user tries to enable biometric lock but hardware
+         is absent, no fingerprints are enrolled, or the sensor is locked out -->
+    <string name="biometric_not_available">Biometric authentication is not available on this device. Please enroll a fingerprint in Settings first.</string>
+
+    <!-- ── Session Tabs ──────────────────────────────────────────────────── -->
+    <string name="active_sessions">Active Sessions</string>
+    <string name="session_tab_connecting">Connecting…</string>
+    <string name="session_tab_reconnecting">Reconnecting…</string>
+    <string name="close_session">Close Session</string>
+
+    <!-- ── Connection History ────────────────────────────────────────────── -->
+    <string name="connection_history">Connection History</string>
+    <string name="data_section">Data</string>
+    <string name="history_empty">No history yet</string>
+    <string name="history_empty_subtitle">Your connections will appear here after the first session</string>
+    <string name="history_reconnect">Reconnect</string>
+    <string name="history_clear">Clear History</string>
+    <string name="history_clear_confirm">The entire connection history will be deleted and cannot be undone.</string>
+    <string name="history_duration_hours">%1$dh %2$dm</string>
+    <string name="history_duration_minutes">%1$dm %2$ds</string>
+    <string name="history_duration_seconds">%1$ds</string>
+    <string name="disconnect_reason_auth">Authentication failed</string>
+    <string name="disconnect_reason_error">Connection error</string>
+    <string name="disconnect_reason_user">Disconnected by user</string>
+
+    <!-- ── FIX B1/B2: Settings strings that were missing ─────────────────── -->
+    <string name="show_fps_counter">FPS Counter</string>
+    <string name="show_fps_counter_desc">Show frames-per-second and latency overlay during session</string>
+    <string name="show_cursor_on_touch">Show Cursor on Touch</string>
+    <string name="show_cursor_on_touch_desc">Display a cursor indicator at the current pointer position</string>
+
+    <!-- ── i18n FIX: Previously hardcoded UI strings ─────────────────────── -->
+    <!-- Disconnect dialog -->
+    <string name="disconnect_dialog_title">Disconnect?</string>
+    <string name="disconnect_dialog_message">This will end the current remote session.</string>
+
+    <!-- ConnectingOverlay -->
+    <string name="connecting_please_wait">Please wait…</string>
+
+    <!-- ErrorOverlay -->
+    <string name="error_connection_failed">Connection Failed</string>
+    <string name="copy_log">Copy log</string>
+    <string name="copied">Copied ✓</string>
+
+    <!-- DisconnectedOverlay -->
+    <string name="disconnected_title">Disconnected</string>
+
+    <!-- Gesture Guide -->
+    <string name="gesture_guide_title">Gesture Guide</string>
+    <string name="gesture_pinch_pan_title">Pinch / Pan</string>
+    <string name="gesture_pinch_pan_desc">Two fingers to zoom &amp; move</string>
+    <string name="gesture_long_press_title">Long Press</string>
+    <string name="gesture_long_press_desc">Right mouse click</string>
+    <string name="gesture_toolbar_title">Toolbar Button</string>
+    <string name="gesture_toolbar_desc">Tap ↓ at top-right to show / hide toolbar</string>
+    <string name="gesture_got_it">Got it</string>
+    <string name="gesture_tap_to_dismiss">Tap anywhere to dismiss</string>
+
+    <!-- Toolbar content descriptions -->
+    <string name="cd_ctrl_alt_del">Ctrl+Alt+Del</string>
+
+    <!-- Connection card chips -->
+    <string name="chip_gateway">Gateway</string>
+    <string name="chip_view_only">View Only</string>
+    <string name="chip_key">Key</string>
+
+    <!-- Empty-state per-protocol -->
+    <string name="no_rdp_connections">No RDP Connections</string>
+    <string name="no_rdp_connections_desc">Add an RDP connection to remotely access Windows</string>
+    <string name="no_vnc_connections">No VNC Connections</string>
+    <string name="no_vnc_connections_desc">Add a VNC connection to control remote desktops</string>
+    <string name="no_ssh_connections">No SSH Connections</string>
+    <string name="no_ssh_connections_desc">Add an SSH connection for secure terminal access</string>
+
+    <!-- Search / list UI -->
+    <string name="search_hint">Search by name or IP…</string>
+    <string name="cd_clear_search">Clear search</string>
+    <string name="cd_drag_reorder">Drag to reorder</string>
+    <string name="cd_lock_icon">App locked</string>
+    <string name="cd_paste">Paste from clipboard</string>
+    <string name="cd_disconnect">Disconnect session</string>
+    <string name="cd_scroll_to_bottom">Scroll to bottom</string>
+    <string name="cd_biometric_button">Unlock with biometrics</string>
+
+    <!-- Quick Connect dialog -->
+    <string name="error_quick_connect_host_required">Quick Connect: host address is required</string>
+    <string name="quick_connect_title">Quick Connect</string>
+    <string name="quick_connect_desc">Connect instantly without saving a profile.</string>
+    <string name="quick_connect_hint">Hold for Quick Connect</string><!-- BUG-7 FIX -->
+    <string name="field_host_port">Host : Port</string>
+
+    <!-- PIN Setup dialog -->
+    <string name="pin_setup_title">Set PIN Code</string>
+    <string name="pin_setup_desc">Enter a 4–6 digit PIN to lock the app.</string>
+    <string name="pin_label">PIN</string>
+    <string name="pin_confirm_label">Confirm PIN</string>
+    <string name="pin_error_too_short">PIN must be at least 4 digits</string>
+    <string name="pin_error_mismatch">PINs do not match</string>
+
+    <!-- About card -->
+    <string name="app_subtitle">Multi-protocol Remote Client</string>
+
+    <!-- AppLockScreen -->
+    <string name="use_biometrics">Use Biometrics</string>
+
+    <!-- TerminalScreen -->
+    <string name="terminal_connecting">Connecting…</string>
+    <string name="terminal_ssh_latency">SSH • %dms</string>
+
+    <!-- Session limit (MAX_TABS) -->
+    <string name="error_max_sessions">Maximum sessions reached (%1$d). Close a session before opening a new one.</string>
+
+    <!-- ── Bug fixes: new i18n strings ──────────────────────────────────────── -->
+
+    <!-- Bug #2: ConnectionHistoryScreen dialog strings -->
+    <string name="history_clear_title">Clear History?</string>
+    <string name="clear">Clear</string>
+    <string name="history_quickconnect_prompt">This session was Quick Connect — enter credentials to continue.</string>
+
+    <!-- Bug #3: MainViewModel import/PIN error messages -->
+    <string name="error_file_cannot_open">Cannot open the file. It may have been moved or access was denied.</string>
+    <string name="error_rdp_file_corrupted">Failed to read the .rdp file. The file may be corrupted.</string>
+    <string name="error_rdp_file_missing_host">Invalid .rdp file: the \'full address\' field is missing or empty.</string>
+    <string name="error_pin_keystore_unavailable">Failed to save PIN. Device Keystore is unavailable.</string>
+    <!-- CRIT-4 FIX: shown by HomeScreen Snackbar when addProfile/updateProfile fails due to Keystore -->
+    <string name="error_profile_save_keystore">Failed to save profile: device Keystore unavailable. Please restart your device and try again.</string>
+
+    <!-- Bug #4: SwipeableCard / Components swipe hint labels -->
+    <string name="swipe_to_delete">Swipe to delete</string>
+    <string name="swipe_to_edit">Swipe to edit</string>
+    <string name="swipe_hint_combined">Swipe a card right to delete, left to edit — or tap ⋮ for more options</string>
+    <string name="card_more_options">More options</string>
+    <string name="connection_history_in_settings">View your connection history</string>
+
+    <!-- Bug #5: Network layer error messages -->
+    <string name="error_auth_failed_credentials">Authentication failed. Check credentials.</string>
+    <string name="error_connect_failed_host">Failed to connect to %1$s:%2$d</string>
+    <string name="error_vnc_timeout">VNC connection timed out after %1$ds. Check host and port.</string>
+    <!-- VNC-STUB FIX: shown when the user attempts a VNC connection. The underlying
+         RFB client (com.undatech.opaque.*) is currently a stub with no real protocol
+         implementation — every VNC connection attempt fails by design. This message
+         tells the user clearly that it's a missing feature, not a network/credential
+         problem, so they don't waste time retrying or re-entering passwords. -->
+    <string name="error_vnc_not_implemented">VNC support is not implemented in this build yet. Connections to VNC servers cannot succeed. Please use RDP or SSH instead.</string>
+    <string name="vnc_unavailable_notice">⚠ VNC support is not implemented yet in this build — connections will fail. Use RDP or SSH for now.</string>
+    <string name="error_ssh_connect_failed">SSH connection failed</string>
+    <string name="error_connection_lost">Connection lost</string>
+    <!-- BUG-DECRYPT FIX: shown when Android Keystore key is lost after reinstall/restore -->
+    <string name="error_credentials_lost">Saved credentials could not be decrypted (Keystore key lost after reinstall or restore). Please edit the profile and re-enter your password.</string>
+
+    <!-- BUG-i18n FIX: session tab / reconnect strings that were hardcoded in English -->
+    <string name="session_tab_auth_failed">Auth failed</string>
+    <string name="session_tab_error">Error</string>
+    <!-- %1$d = current attempt, %2$d = total attempts -->
+    <string name="session_tab_retry">Retry %1$d/%2$d</string>
+    <!-- %1$d = current attempt, %2$d = total attempts, %3$d = wait seconds -->
+    <string name="session_connecting_countdown">Reconnecting (%1$d/%2$d) in %3$ds…</string>
+    <!-- %1$d = current attempt, %2$d = total attempts -->
+    <string name="session_connecting_retry">Reconnecting (%1$d/%2$d)…</string>
+    <string name="disconnect_reason_app_closed">App closed</string>
+
+    <!-- Bug #6: Protocol filter "All" label -->
+    <string name="filter_all">All</string>
+
+    <!-- ── i18n FIX: strings that were hardcoded in Kotlin code ─────────── -->
+    <!-- MainViewModel: default name for imported .rdp files -->
+    <string name="imported_profile_name">Imported</string>
+    <!-- RdpSessionViewModel: error when profile ID is not found in DB -->
+    <string name="error_profile_not_found">Profile not found</string>
+    <!-- RdpSessionViewModel: generic fallback for unhandled exceptions -->
+    <string name="error_unexpected">Unexpected error</string>
+    <!-- Components: WoL chip label on connection card -->
+    <string name="chip_wol">WoL</string>
+
+    <!-- ── File Transfer Feature ─────────────────────────────────────────── -->
+    <string name="ft_toolbar_button">Files</string>
+    <string name="ft_title">File Transfer</string>
+    <string name="ft_phone_files">Phone Files</string>
+    <string name="ft_remote_files">Remote Files</string>
+    <string name="ft_server_info">Server Info</string>
+    <string name="ft_empty_folder">Empty folder</string>
+    <string name="ft_server_running">HTTP Server Active</string>
+    <string name="ft_server_starting">Starting server…</string>
+    <string name="ft_server_hint">Open this address in the remote PC\'s browser:</string>
+    <string name="ft_download_tip">Download</string>
+    <string name="ft_upload_tip">Upload</string>
+    <string name="ft_rdp_vnc_note">For RDP/VNC sessions, file sharing uses a local HTTP server.\nBrowse from the remote PC via the URL above.</string>
+    <string name="ft_permission_needed">Storage access needed to browse phone files</string>
+    <string name="ft_grant">Grant</string>
+    <string name="ft_retry">Retry</string>
+
+    <!-- FIX 4: FileTransfer fallback error strings (were hardcoded in English) -->
+    <string name="ft_error_sftp_connect">SFTP connection failed</string>
+    <string name="ft_error_list_dir">Failed to list directory</string>
+    <string name="ft_error_upload">Upload failed</string>
+    <string name="ft_error_download">Download failed</string>
+    <!-- FIX 4: Progress banner labels -->
+    <string name="ft_progress_uploading">Uploading</string>
+    <string name="ft_progress_downloading">Downloading</string>
+    <string name="ft_progress_uploaded">uploaded</string>
+    <string name="ft_progress_downloaded">downloaded</string>
+
+    <!-- FIX 5: Terminal extra-key labels (were hardcoded) -->
+    <string name="term_key_esc">Esc</string>
+    <string name="term_key_tab">Tab</string>
+    <string name="term_key_home">Home</string>
+    <string name="term_key_end">End</string>
+
+    <!-- FIX 6: QuickConnect host:port placeholder -->
+    <string name="quick_connect_placeholder">192.168.1.1:3389</string>
+
+    <!-- FIX-VALID: QuickConnect username validation -->
+    <string name="error_username_required">Username is required</string>
+
+    <!-- FIX-I18N: HttpServerPanel hints (were hardcoded English) -->
+    <string name="ft_http_download_hint">Tap any file in the browser to download it</string>
+    <string name="ft_http_upload_hint">Use the upload form at the bottom of the page</string>
+
+
+    <!-- BUG-5 FIX: Storage size unit labels moved from hardcoded English to string resources -->
+    <string name="storage_unit_b">B</string>
+    <string name="storage_unit_kb">KB</string>
+    <string name="storage_unit_mb">MB</string>
+    <string name="storage_unit_gb">GB</string>
+    <!-- %1$s = free bytes formatted, %2$s = total bytes formatted -->
+    <string name="storage_free_of">%1$s free of %2$s</string>
+    <string name="storage_free">free</string>
+
+    <!-- FIX-MED-R3-3: distinct message for Keystore failure during PIN verification -->
+    <string name="error_pin_keystore_verify">Device security key unavailable — cannot verify PIN. Please restart your device and try again.</string>
+
+    <!-- FIX-MED-R3-4: TOFU fingerprint clear button and confirmation dialog -->
+    <string name="tofu_clear_section">Server Trust</string>
+    <string name="tofu_clear_button_ssh">Clear saved SSH fingerprint</string>
+    <string name="tofu_clear_button_tunnel">Clear saved tunnel fingerprint</string>
+    <string name="tofu_clear_confirm_title">Clear server fingerprint?</string>
+    <string name="tofu_clear_confirm_message">The stored fingerprint for this server will be deleted. On the next connection you will be asked to trust the server again.</string>
+    <string name="tofu_cleared">Fingerprint cleared. The server will be re-verified on reconnect.</string>
+
+    <!-- FIX-LIMIT: ConnectionHistory cap notice -->
+    <string name="history_limit_note">Showing the 50 most recent connections</string>
+
+    <!-- HIGH-2 FIX: Plain VNC (no TLS) security warning shown in UI -->
+    <string name="warning_vnc_no_tls">⚠ This VNC server does not offer TLS encryption. Your session and password may be visible to others on the network. Proceed only on a trusted private network.</string>
+
+    <!-- CRIT-1 FIX: Opaque SSH error strings (no host/port/algo leakage) -->
+    <string name="error_ssh_timeout">SSH connection timed out. Check the host address and port, then try again.</string>
+    <string name="error_ssh_refused">SSH connection refused. Verify the server is running and the port is correct.</string>
+</resources>
