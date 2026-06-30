@@ -28,6 +28,23 @@
 #endif
 
 #define TAG "hexrdp_jni"
+
+/* Portable secure-zero helper.
+ * explicit_bzero() is NOT declared on Android NDK below __ANDROID_API__ 28 —
+ * Bionic only added it in API 28, while this project builds against
+ * android-26 (see ANDROID_PLATFORM in the CI workflow), which is what
+ * caused "call to undeclared function 'explicit_bzero'" on arm64-v8a.
+ * A plain memset() can legally be eliminated by the compiler as a dead
+ * store once it proves the buffer isn't read again afterward, so instead
+ * we zero through a volatile pointer: writes through a volatile pointer
+ * are required to be observable and cannot be optimized away, giving the
+ * same guarantee explicit_bzero() would without depending on libc version. */
+static void hexrdp_secure_bzero(void *buf, size_t len) {
+    volatile unsigned char *p = (volatile unsigned char *)buf;
+    while (len--) {
+        *p++ = 0;
+    }
+}
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,  TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, TAG, __VA_ARGS__)
 
@@ -284,16 +301,18 @@ Java_com_gotohex_rdp_rdp_native_AFreeRdpBridge_nativeConnect(
     /* NEW-CRIT-3 FIX: Zero pass immediately after handing it to FreeRDP and before
      * freerdp_connect() — which can block for 5-30 seconds (TCP + TLS + NLA handshake).
      * During that window, a native heap snapshot would expose the cleartext password.
-     * explicit_bzero() is used instead of memset() because the compiler is permitted to
+     * hexrdp_secure_bzero() is used instead of memset() because the compiler is permitted to
      * eliminate a plain memset() as a Dead Store if it determines the buffer is not read
-     * afterward.  explicit_bzero() is guaranteed to execute on Android NDK (POSIX.1-2017).
+     * afterward. It writes through a volatile pointer, which the compiler cannot optimize
+     * away, so it is guaranteed to execute regardless of NDK/API level (unlike libc's
+     * explicit_bzero(), which Bionic only exposes starting at __ANDROID_API__ 28).
      * FreeRDP has already copied the string into its own internal settings buffer via
      * freerdp_settings_set_string(), so zeroing our copy is safe here.
      * domain contains no secret but is zeroed for uniformity (minimises attack surface). */
-    explicit_bzero((void*)pass,   strlen(pass));
+    hexrdp_secure_bzero((void*)pass,   strlen(pass));
     (*env)->ReleaseStringUTFChars(env, jPassword, pass);
     pass = NULL;
-    explicit_bzero((void*)domain, strlen(domain));
+    hexrdp_secure_bzero((void*)domain, strlen(domain));
     (*env)->ReleaseStringUTFChars(env, jDomain,   domain);
     domain = NULL;
 
@@ -311,7 +330,7 @@ Java_com_gotohex_rdp_rdp_native_AFreeRdpBridge_nativeConnect(
         {
             if (gwHost)   (*env)->ReleaseStringUTFChars(env, jGwHost,   gwHost);
             if (gwUser)   (*env)->ReleaseStringUTFChars(env, jGwUser,   gwUser);
-            if (gwPass)   { explicit_bzero((void*)gwPass, strlen(gwPass)); (*env)->ReleaseStringUTFChars(env, jGwPass,   gwPass); }
+            if (gwPass)   { hexrdp_secure_bzero((void*)gwPass, strlen(gwPass)); (*env)->ReleaseStringUTFChars(env, jGwPass,   gwPass); }
             if (gwDomain) (*env)->ReleaseStringUTFChars(env, jGwDomain, gwDomain);
             (*env)->ReleaseStringUTFChars(env, jHost,     host);
             (*env)->ReleaseStringUTFChars(env, jUsername, user);
@@ -330,7 +349,7 @@ Java_com_gotohex_rdp_rdp_native_AFreeRdpBridge_nativeConnect(
         /* NEW-CRIT-3 FIX: Zero gwPass before freerdp_connect() for the same reason as pass. */
         (*env)->ReleaseStringUTFChars(env, jGwHost,   gwHost);
         (*env)->ReleaseStringUTFChars(env, jGwUser,   gwUser);
-        explicit_bzero((void*)gwPass,   strlen(gwPass));
+        hexrdp_secure_bzero((void*)gwPass,   strlen(gwPass));
         (*env)->ReleaseStringUTFChars(env, jGwPass,   gwPass);
         (*env)->ReleaseStringUTFChars(env, jGwDomain, gwDomain);
     }
